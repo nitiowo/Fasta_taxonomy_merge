@@ -44,5 +44,5 @@ def merge_fasta_tsv(fasta_file, tsv_file, output_file):
             identifier, taxonomic_assignment = line.strip().split('\t')
             if identifier in fasta_sequences:  # For each line, check if ID is in dictionary
                 sequence = fasta_sequences[identifier]  # Retrieve the sequence
-                # Add > to taxon header, new line, add sequence, new line
-                output.write(f'>{taxonomic_assignment}\n{sequence}\n')
+                # Add > to taxon header, taxon, add semicolon, new line, add sequence, new line
+                output.write(f'>{taxonomic_assignment};\n{sequence}\n')
